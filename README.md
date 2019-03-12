@@ -7,6 +7,12 @@
 
 Redstone has a State Machine.
 
+
+## Update
+1.fix  api bug
+2.add new api before state enter 
+
+
 ## Requirements
 
 Swift 4, iOS 8

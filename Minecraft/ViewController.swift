@@ -38,24 +38,44 @@ class ViewController: UIViewController {
     }
     lazy var stateMachine: StateMachine<State, Transition> = {
         let stateMachine = StateMachine<State, Transition>()
-        stateMachine.add(state: .off) { [weak self] in
+        stateMachine.add(state: .off, entryOperation: {
+            [weak self] in
             self?.statusBarStyle = .lightContent
             self?.view.backgroundColor = .black
             self?.promptLabel.textColor = .white
             self?.promptLabel.text = "Tap to turn lights on"
-        }
-        stateMachine.add(state: .on) { [weak self] in
+            print("enter off")
+        })
+        
+        stateMachine.add(state: .off, beforeEntryOperation: {
+            print("before enter off")
+        })
+        
+        stateMachine.add(state: .on, entryOperation: { [weak self] in
             self?.statusBarStyle = .default
             self?.view.backgroundColor = .white
             self?.promptLabel.textColor = .black
             self?.promptLabel.text = "Tap to turn lights off"
-        }
-        stateMachine.add(state: .broken) { [weak self] in
+            print("enter on")
+        })
+        
+        stateMachine.add(state: .on, beforeEntryOperation: {
+            print("before enter on")
+        })
+        
+        stateMachine.add(state: .broken, entryOperation: { [weak self] in
             self?.statusBarStyle = .lightContent
             self?.view.backgroundColor = .black
             self?.promptLabel.textColor = .white
             self?.promptLabel.text = "The wire is broken :["
-        }
+            print("enter broken")
+        })
+        
+        stateMachine.add(state: .broken, beforeEntryOperation: {
+            print("before enter broken")
+        })
+        
+       // stateMachine.add
         stateMachine.add(transition: .turn, fromState: .off, toState: .on)
         stateMachine.add(transition: .turn, fromState: .on, toState: .off)
         stateMachine.add(transition: .cut, fromStates: [.on, .off], toState: .broken)

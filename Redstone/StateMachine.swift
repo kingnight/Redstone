@@ -9,11 +9,15 @@
 public class StateMachine<State: Hashable, Transition: Hashable> {
     public typealias Operation = () -> Void
     private var body = [State: Operation?]()
+    private var beforeBody = [State: Operation?]()
     public private(set) var previousState: State?
-    public private(set) var lastTransition: Transition?
+    //public private(set) var lastTransition: Transition?
     public private(set) var currentState: State? {
         willSet {
             previousState = currentState
+            if let state = newValue {
+                beforeBody[state]??()
+            }
         }
         didSet {
             if let state = currentState {
@@ -34,6 +38,10 @@ public class StateMachine<State: Hashable, Transition: Hashable> {
     public func add(state: State, entryOperation: Operation?) {
         body[state] = entryOperation
     }
+    public func add(state: State, beforeEntryOperation: Operation?) {
+        beforeBody[state] = beforeEntryOperation
+    }
+    
     public func add(transition: Transition, fromState: State, toState: State) {
         var bag = stateTransitionTable[fromState] ?? [:]
         bag[transition] = toState
@@ -47,7 +55,7 @@ public class StateMachine<State: Hashable, Transition: Hashable> {
     public func fire(transition: Transition) {
         guard let state = currentState else { return }
         guard let toState = stateTransitionTable[state]?[transition] else { return }
-        lastTransition = transition
+      //  lastTransition = transition
         currentState = toState
     }
 }

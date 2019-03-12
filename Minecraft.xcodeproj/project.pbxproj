@@ -236,7 +236,7 @@
 				TargetAttributes = {
 					5089F1A11E1FDCBC00FADE27 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 8D957V42M6;
+						DevelopmentTeam = LDN34PXC9A;
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
@@ -484,11 +484,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8D957V42M6;
+				DEVELOPMENT_TEAM = LDN34PXC9A;
 				INFOPLIST_FILE = Minecraft/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nixWork.Minecraft;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sohu.Minecraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -499,11 +499,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8D957V42M6;
+				DEVELOPMENT_TEAM = LDN34PXC9A;
 				INFOPLIST_FILE = Minecraft/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nixWork.Minecraft;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sohu.Minecraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
